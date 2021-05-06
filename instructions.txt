@@ -3,7 +3,8 @@ Hello Hassan Asqiriba,
 You have received a new message from Joon Lee:
 
 Hello Hassan,
-For the next step in your application process, we want to see a demonstration of your mobile application development skills. Please create a mobile application according to the requirements listed below:
+For the next step in your application process, we want to see a demonstration of your mobile application development skills.
+Please create a mobile application according to the requirements listed below:
 
 Create a basic CRUD Expo-managed React Native mobile application.
 
