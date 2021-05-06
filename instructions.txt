@@ -1,0 +1,25 @@
+Hello Hassan Asqiriba,
+
+You have received a new message from Joon Lee:
+
+Hello Hassan,
+For the next step in your application process, we want to see a demonstration of your mobile application development skills. Please create a mobile application according to the requirements listed below:
+
+Create a basic CRUD Expo-managed React Native mobile application.
+
+Minimum Requirements:
+- At least 3 different screens:
+- 1 index screen, showing basic info for a set of records
+- 1 details screen, displaying more detailed information for a specific record. There should be a way to access this screen from the index screen
+- 1 form screen, at least mock input fields to create/update records
+- Maintain repository on GitHub or another git repository
+- README file with instructions to run the project
+
+In addition to the above requirements, feel free to add anything that showcases your mobile app development abilities.
+
+The deadline is Friday, May 14. Once ready for us to review, please send us a URL to view the repository. We may schedule a follow up call with questions regarding the application.
+
+Please let us know if you have any questions. Thank you.
+
+Sincerely,
+Joon Lee
