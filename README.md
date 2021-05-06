@@ -1,7 +1,7 @@
 # BasicCRUD app
 
 <p align="center">
-<img src="/assets/images/README.png" alt="drawing" width="1000"/>
+<img src="./assets/images/README.png" alt="drawing" width="1000"/>
 </p>
 
 #### Minimum Requirements:
