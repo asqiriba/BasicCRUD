@@ -1,0 +1,10 @@
+
+// Colours.
+export const backgroundColor = '#3A77A4';
+export const headerTintColor = '#E9F1F4';
+export const buttonColor = "#3A77A4";
+
+// Navigator destinations.
+export const toIndexScreen = 'IndexScreen';
+export const toDetailsScreen = 'DetailsScreen';
+export const toFormScreen = 'FormScreen';
