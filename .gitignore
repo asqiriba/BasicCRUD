@@ -8,7 +8,9 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+
 BasicCRUD\instructions.txt
+BasicCRUD\controllers\secrets.js
 
 # macOS
 .DS_Store
