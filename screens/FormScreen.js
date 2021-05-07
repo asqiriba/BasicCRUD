@@ -25,7 +25,7 @@ class FormScreen extends Component {
 
   storeUser() {
     if(this.state.name === ''){
-     alert('Fill at least your name!')
+     alert('Please give it a name.')
     } else {
       this.setState({
         isLoading: true,
@@ -44,7 +44,7 @@ class FormScreen extends Component {
         this.props.navigation.navigate(constant.toIndexScreen)
       })
       .catch((err) => {
-        console.error("Error found: ", err);
+        console.error("Error: ", err);
         this.setState({
           isLoading: false,
         });
@@ -56,7 +56,7 @@ class FormScreen extends Component {
     if(this.state.isLoading){
       return(
         <View style = {styles.preloader}>
-          <ActivityIndicator size = "large" color="#9E9E9E"/>
+          <ActivityIndicator size = "large" color = {constant.activityIndicatorColor}/>
         </View>
       )
     }
@@ -95,18 +95,6 @@ class FormScreen extends Component {
       </ScrollView>
     );
   }
-
-  // render() {
-  //   return (
-  //     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-  //       <Button
-  //         title = "Go to Index Screen"
-  //         onPress = {() => this.props.navigation.navigate(constant.toIndexScreen)}
-  //         color = {constant.buttonColor}
-  //       />
-  //     </View>
-  //   );
-  // }
 }
 
 const styles = StyleSheet.create({
@@ -119,7 +107,7 @@ const styles = StyleSheet.create({
     padding: 0,
     marginBottom: 15,
     borderBottomWidth: 1,
-    borderBottomColor: '#cccccc',
+    borderBottomColor: '#CCCCCC',
   },
   preloader: {
     left: 0,
