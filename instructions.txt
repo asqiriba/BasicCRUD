@@ -26,6 +26,8 @@ Please let us know if you have any questions. Thank you.
 Sincerely,
 Joon Lee
 
+
+
 Dependencies:
 Expo Go 2.19.3
 
@@ -35,3 +37,15 @@ npm install @react-navigation/stack
 npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
 npm install firebase --save
 npm install react-native-elements
+
+
+/*
+    FireBase credentials. This is an example file. Use your own under controllers ('../controllers/secrets').
+*/
+export const apiKey = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+export const authDomain = 'reactnativefirebase-00000.firebaseapp.com';
+export const databaseURL = 'https://reactnativefirebase-00000.firebaseio.com';
+export const projectId = 'reactnativefirebase-00000';
+export const storageBucket = 'reactnativefirebase-00000.appspot.com';
+export const messagingSenderId = '000000000000000';
+export const appId = '1:000000000000000:web:000000000000000';
