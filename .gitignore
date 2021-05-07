@@ -9,8 +9,8 @@ npm-debug.*
 *.orig.*
 web-build/
 
-BasicCRUD\instructions.txt
-BasicCRUD\controllers\secrets.js
+instructions.txt
+controllers/secrets.js
 
 # macOS
 .DS_Store
