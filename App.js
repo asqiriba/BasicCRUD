@@ -26,17 +26,17 @@ function MyStack() {
       <Stack.Screen 
         name = "IndexScreen" 
         component = {IndexScreen} 
-        options = {{ title: 'This is the Index Screen' }}
+        options = {{ title: 'Contacts (Index)' }}
       />
       <Stack.Screen 
         name = "FormScreen" 
         component = {FormScreen} 
-        options = {{ title: 'This is the Form Screen' }}
+        options = {{ title: 'Add Contact (Form)' }}
       />
       <Stack.Screen 
        name = "DetailsScreen" 
        component = {DetailsScreen} 
-       options = {{ title: 'This is the Details Screen' }}
+       options = {{ title: 'Update Contact Info (Details)' }}
       />
     </Stack.Navigator>
   );
