@@ -86,10 +86,10 @@ class IndexScreen extends Component {
 const styles = StyleSheet.create({
   container: {
    flex: 1,
-   paddingBottom: 22
+   paddingBottom: 20
   },
   preloader: {
-    flex: 2,
+    flex: 1,
     left: 0,
     right: 0,
     top: 0,
