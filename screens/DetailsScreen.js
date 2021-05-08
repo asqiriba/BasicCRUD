@@ -109,7 +109,7 @@ class DetailsScreen extends Component {
         <View style = {styles.inputGroup}>
           <TextInput
               multiline = {true}
-              numberOfLines = {4}
+              numberOfLines = {1}
               placeholder = {'Email'}
               value = {this.state.email}
               onChangeText = {(val) => this.inputValueUpdate(val, 'email')}
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   inputGroup: {
     flex: 1,
     padding: 0,
-    marginBottom: 15,
+    marginBottom: 20,
     borderBottomWidth: 1,
     borderBottomColor: '#CCCCCC',
   },
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   button: {
-    marginBottom: 7, 
+    marginBottom: 7
   }
 })
 

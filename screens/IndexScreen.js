@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { StyleSheet, ScrollView, ActivityIndicator, View } from 'react-native';
-import { ListItem } from 'react-native-elements'
+import { ListItem, Button } from 'react-native-elements'
 
 // Import constants.js and database.js.
 import * as constant from '../controllers/constants.js'
@@ -53,23 +53,32 @@ class IndexScreen extends Component {
       )
     }    
     return (
-      <ScrollView style = {styles.container}>
-          {
-            this.state.userArr.map((item, i) => {
-              return (
-                <ListItem
-                  key = {i}
-                  chevron
-                  bottomDivider
-                  title = {item.name}
-                  subtitle = {item.email}
-                  onPress = {() => {
-                    this.props.navigation.navigate(constant.toDetailsScreen, { userkey: item.key });
-                  }}/>
-              );
-            })
-          }
-      </ScrollView>
+      <Fragment>
+        <ScrollView style = {styles.container}>
+            {
+              this.state.userArr.map((item, i) => {
+                return (
+                  <ListItem
+                    key = {i}
+                    chevron
+                    bottomDivider
+                    title = {item.name}
+                    subtitle = {item.email}
+                    onLongPress = {() => {
+                      this.props.navigation.navigate(constant.toDetailsScreen, { userkey: item.key });
+                    }}/>
+                );
+              })
+            }
+        </ScrollView>
+        <View style = {styles.button}>
+          <Button
+            title = 'Add Contact'
+            onPress = {() => this.props.navigation.navigate(constant.toFormScreen)} 
+            color = {constant.buttonColor}
+          />
+        </View>
+      </Fragment>
     );
   }
 }
@@ -80,6 +89,7 @@ const styles = StyleSheet.create({
    paddingBottom: 22
   },
   preloader: {
+    flex: 2,
     left: 0,
     right: 0,
     top: 0,
@@ -87,6 +97,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  button: {
+    flex: 3,
+    justifyContent: 'flex-end',
+    bottom: 0,
+    marginBottom: 7
   }
 })
 
