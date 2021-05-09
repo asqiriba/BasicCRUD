@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { StyleSheet, ScrollView, ActivityIndicator, View } from 'react-native';
-import { ListItem, Button } from 'react-native-elements'
+import { ListItem } from 'react-native-elements'
 import { Avatar } from 'react-native-elements/dist/avatar/Avatar';
+import { Chip } from 'react-native-elements/dist/buttons/Chip';
 
 // Import constants.js and database.js.
 import * as constant from '../controllers/constants.js'
@@ -61,16 +62,6 @@ class IndexScreen extends Component {
                 var initials = item.name.split(" ").map((n)=>n[0]).join("");
 
                 return (
-                  // <ListItem
-                  //   key = {i}
-                  //   chevron
-                  //   bottomDivider
-                  //   title = {item.name}
-                  //   subtitle = {item.email}
-                  //   textStyle={{ color: '#9E9E9E' }}
-                  //   onPress = {() => {
-                  //     this.props.navigation.navigate(constant.toDetailsScreen, { userkey: item.key });
-                  //   }}/>
                   <ListItem 
                   key={i} 
                   bottomDivider
@@ -90,14 +81,15 @@ class IndexScreen extends Component {
               })
             }
         </ScrollView>
-          <Button style = {styles.button}
+          <Chip style = {styles.button}
+            // iconRight
             title = 'Add Contact'
             onPress = {() => this.props.navigation.navigate(constant.toFormScreen)} 
             color = {constant.buttonColor}
             icon={{
-              name: "add",
+              name: 'add',
               size: 15,
-              color: "white"
+              color: 'white'
             }}
           />
       </Fragment>
