@@ -58,6 +58,8 @@ class IndexScreen extends Component {
         <ScrollView style = {styles.container}>
             {
               this.state.contactArray.map((item, i) => {
+                var initials = item.name.split(" ").map((n)=>n[0]).join("");
+
                 return (
                   // <ListItem
                   //   key = {i}
@@ -77,7 +79,7 @@ class IndexScreen extends Component {
                       }}>
                     <Avatar
                     rounded
-                    title = 'HA'
+                    title = {initials}
                     overlayContainerStyle={{backgroundColor: constant.backgroundColor}}/>
                     <ListItem.Content>
                       <ListItem.Title>{item.name}</ListItem.Title>
