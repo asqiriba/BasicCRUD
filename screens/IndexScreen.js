@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { StyleSheet, ScrollView, ActivityIndicator, View } from 'react-native';
 import { ListItem, Button } from 'react-native-elements'
+import { Avatar } from 'react-native-elements/dist/avatar/Avatar';
 
 // Import constants.js and database.js.
 import * as constant from '../controllers/constants.js'
@@ -12,7 +13,7 @@ class IndexScreen extends Component {
     this.firestoreRef = firebase.firestore().collection('users');
     this.state = {
       isLoading: true,
-      userArr: []
+      contactArray: []
     };
   }
 
@@ -27,10 +28,10 @@ class IndexScreen extends Component {
 
   // Renders the data from the Firebase database and sets the loader to false when fetched.
   getCollection = (querySnapshot) => {
-    const userArr = [];
+    const contactArray = [];
     querySnapshot.forEach((res) => {
       const { name, email, mobile } = res.data();
-      userArr.push({
+      contactArray.push({
         key: res.id,
         res,
         name,
@@ -39,7 +40,7 @@ class IndexScreen extends Component {
       });
     });
     this.setState({
-      userArr,
+      contactArray,
       isLoading: false,
    });
   }
@@ -56,28 +57,47 @@ class IndexScreen extends Component {
       <Fragment>
         <ScrollView style = {styles.container}>
             {
-              this.state.userArr.map((item, i) => {
+              this.state.contactArray.map((item, i) => {
                 return (
-                  <ListItem
-                    key = {i}
-                    chevron
-                    bottomDivider
-                    title = {item.name}
-                    subtitle = {item.email}
-                    onPress = {() => {
-                      this.props.navigation.navigate(constant.toDetailsScreen, { userkey: item.key });
-                    }}/>
+                  // <ListItem
+                  //   key = {i}
+                  //   chevron
+                  //   bottomDivider
+                  //   title = {item.name}
+                  //   subtitle = {item.email}
+                  //   textStyle={{ color: '#9E9E9E' }}
+                  //   onPress = {() => {
+                  //     this.props.navigation.navigate(constant.toDetailsScreen, { userkey: item.key });
+                  //   }}/>
+                  <ListItem 
+                  key={i} 
+                  bottomDivider
+                  onPress = {() => {
+                        this.props.navigation.navigate(constant.toDetailsScreen, { userkey: item.key });
+                      }}>
+                    <Avatar
+                    rounded
+                    title = 'HA'
+                    overlayContainerStyle={{backgroundColor: constant.backgroundColor}}/>
+                    <ListItem.Content>
+                      <ListItem.Title>{item.name}</ListItem.Title>
+                      <ListItem.Subtitle>{item.email}</ListItem.Subtitle>
+                    </ListItem.Content>
+                  </ListItem>
                 );
               })
             }
         </ScrollView>
-        <View style = {styles.button}>
-          <Button
+          <Button style = {styles.button}
             title = 'Add Contact'
             onPress = {() => this.props.navigation.navigate(constant.toFormScreen)} 
             color = {constant.buttonColor}
+            icon={{
+              name: "add",
+              size: 15,
+              color: "white"
+            }}
           />
-        </View>
       </Fragment>
     );
   }
@@ -89,20 +109,17 @@ const styles = StyleSheet.create({
    paddingBottom: 20
   },
   preloader: {
-    flex: 1,
+    flex: 3,
     left: 0,
     right: 0,
     top: 0,
     bottom: 0,
-    position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center'
   },
   button: {
-    flex: 3,
-    justifyContent: 'flex-end',
-    bottom: 0,
-    marginBottom: 7
+    marginBottom: 7,
+    elevation: 3
   }
 })
 
