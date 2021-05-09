@@ -81,17 +81,19 @@ class IndexScreen extends Component {
               })
             }
         </ScrollView>
-          <Chip style = {styles.button}
-            // iconRight
-            title = 'Add Contact'
-            onPress = {() => this.props.navigation.navigate(constant.toFormScreen)} 
-            color = {constant.buttonColor}
-            icon={{
-              name: 'add',
-              size: 15,
-              color: 'white'
-            }}
-          />
+          <View style = {styles.bottom}>
+            <Chip
+              // iconRight
+              title = 'Add Contact'
+              onPress = {() => this.props.navigation.navigate(constant.toFormScreen)} 
+              // color = {constant.buttonColor}
+              icon={{
+                name: 'add',
+                size: 20,
+                color: 'white'
+              }}
+            />
+          </View>
       </Fragment>
     );
   }
@@ -111,9 +113,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  button: {
-    marginBottom: 7,
-    elevation: 3
+  bottom: {
+    position: "absolute",
+    right: 10,
+    bottom: 10,
+    alignSelf: "flex-end"
   }
 })
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme  } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 // Import Screens files.
@@ -12,6 +12,14 @@ import * as constant from './controllers/constants'
 
 // Declaration of the navigator stack.
 const Stack = createStackNavigator();
+
+const adjustedTheme = {
+  ...DefaultTheme,
+  // colors: {
+  //   ...DefaultTheme.colors,
+  //   primary: '#E37399'
+  // },
+};
 
 function MyStack() {
   return (
@@ -44,7 +52,7 @@ function MyStack() {
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme = {adjustedTheme}>
       <MyStack />
     </NavigationContainer>
   );
