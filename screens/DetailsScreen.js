@@ -57,7 +57,7 @@ class DetailsScreen extends Component {
         mobile: '',
         isLoading: false,
       });
-      this.props.navigation.navigate(constant.toFormScreen);
+      this.props.navigation.navigate(constant.toIndexScreen);
     })
     .catch((error) => {
       console.error("Error: ", error);
@@ -71,7 +71,7 @@ class DetailsScreen extends Component {
     const dbRef = firebase.firestore().collection('users').doc(this.props.route.params.userkey)
       dbRef.delete().then((res) => {
           console.log('Item removed from database.')
-          this.props.navigation.navigate(constant.toFormScreen);
+          this.props.navigation.navigate(constant.toIndexScreen);
       })
   }
 

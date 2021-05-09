@@ -64,7 +64,7 @@ class IndexScreen extends Component {
                     bottomDivider
                     title = {item.name}
                     subtitle = {item.email}
-                    onLongPress = {() => {
+                    onPress = {() => {
                       this.props.navigation.navigate(constant.toDetailsScreen, { userkey: item.key });
                     }}/>
                 );
