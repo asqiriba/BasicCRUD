@@ -11,7 +11,7 @@ import firebase from '../database/firebase.js';
 class IndexScreen extends Component {
   constructor() {
     super();
-    this.firestoreRef = firebase.firestore().collection('users');
+    this.firestoreRef = firebase.firestore().collection(constant.databaseTable);
     this.state = {
       isLoading: true,
       contactArray: []
@@ -40,6 +40,7 @@ class IndexScreen extends Component {
         mobile,
       });
     });
+    
     this.setState({
       contactArray,
       isLoading: false,
@@ -81,19 +82,19 @@ class IndexScreen extends Component {
               })
             }
         </ScrollView>
-          <View style = {styles.bottom}>
-            <Chip
-              // iconRight
-              title = 'Add Contact'
-              onPress = {() => this.props.navigation.navigate(constant.toFormScreen)} 
-              // color = {constant.buttonColor}
-              icon={{
-                name: 'add',
-                size: 20,
-                color: 'white'
-              }}
-            />
-          </View>
+        <View style = {styles.bottom}>
+          <Chip
+            // iconRight
+            title = 'Add Contact'
+            onPress = {() => this.props.navigation.navigate(constant.toFormScreen)} 
+            // color = {constant.buttonColor}
+            icon={{
+              name: 'add',
+              size: 20,
+              color: 'white'
+            }}
+          />
+        </View>
       </Fragment>
     );
   }

@@ -8,7 +8,7 @@ import firebase from '../database/firebase.js';
 class FormScreen extends Component {
   constructor() {
     super();
-    this.dbRef = firebase.firestore().collection('users');
+    this.dbRef = firebase.firestore().collection(constant.databaseTable);
     this.state = {
       name: '',
       email: '',

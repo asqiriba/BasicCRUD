@@ -68,7 +68,7 @@ class DetailsScreen extends Component {
   }
 
   deleteUser() {
-    const dbRef = firebase.firestore().collection('users').doc(this.props.route.params.userkey)
+    const dbRef = firebase.firestore().collection(constant.databaseTable).doc(this.props.route.params.userkey)
       dbRef.delete().then((res) => {
           console.log('Item removed from database.')
           this.props.navigation.navigate(constant.toIndexScreen);
