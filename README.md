@@ -1,13 +1,14 @@
 # BasicCRUD app
-<p align="left">
+<p align="right">
 <img src="https://img.shields.io/badge/dependencies-expo%20go%202.19.3-brightgreen" />
+</p>
 
 <p align="center">
 <img src="./assets/images/README.png" alt="drawing" width="1000"/>
 </p>
 
 #### Set up the environment
-Run the following commands to install the dependencies.
+Run the following commands to install the required libraries.
 
 ```shell
 npm install @react-navigation/native react-native-reanimated react-native-gesture-handler 
@@ -29,11 +30,11 @@ const firebaseConfig = {
     appId: "secret.appId"
 };
 
-export const databaseTable = 'secret.collectionName';
+export const databaseTable = "secret.collectionName";
 ```
 
 Your Firebase database should have a collection and the string-type fields name, email and mobile.
-```
+```plaintext
 .
 └── collection
     ├── name
@@ -51,6 +52,10 @@ Your Firebase database should have a collection and the string-type fields name,
 To start the application in the Android device, first and foremost thing mobile device and system should be connected on the same network.
 
 Same way you can run the app on iOS device for development purpose.
+
+<p align="center">
+<img src="assets/images/demo.gif" width="250" height="500"/>
+</p>
 
 #### Know Issues
 OS throws a Warning: Setting a timer for a long period of time, i.e. multiple minutes, 
