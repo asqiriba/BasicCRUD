@@ -41,6 +41,9 @@ class IndexScreen extends Component {
         mobile,
       });
     });
+
+    // Sort the output by it's name.
+    contactArray.sort((a, b) => a.name > b.name);
     
     this.setState({
       contactArray,
