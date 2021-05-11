@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Button, StyleSheet, TextInput, ScrollView, ActivityIndicator, View } from 'react-native';
 
-// Import constants.js and database.js.
+// Import constants.js, secrets.js and database.js.
 import * as constant from '../controllers/constants.js'
+import * as secret from '../controllers/secrets.js'
 import firebase from '../database/firebase.js';
 
 class FormScreen extends Component {
   constructor() {
     super();
-    this.dbRef = firebase.firestore().collection(constant.databaseTable);
+    this.dbRef = firebase.firestore().collection(secret.databaseTable);
     this.state = {
       name: '',
       email: '',
@@ -44,7 +45,7 @@ class FormScreen extends Component {
         this.props.navigation.navigate(constant.toIndexScreen)
       })
       .catch((err) => {
-        console.error("Error: ", err);
+        console.error('Error: ', err);
         this.setState({
           isLoading: false,
         });
@@ -56,7 +57,7 @@ class FormScreen extends Component {
     if(this.state.isLoading){
       return(
         <View style = {styles.preloader}>
-          <ActivityIndicator size = "large" color = {constant.activityIndicatorColor}/>
+          <ActivityIndicator size = 'large' color = {constant.activityIndicatorColor}/>
         </View>
       )
     }

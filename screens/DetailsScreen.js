@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Alert, Button, StyleSheet, TextInput, ScrollView, ActivityIndicator, View } from 'react-native';
 
-// Import constants.js and database.js.
+// Import constants.js, secrets.js and database.js.
 import * as constant from '../controllers/constants.js'
+import * as secret from '../controllers/secrets.js'
 import firebase from '../database/firebase.js';
 
 class DetailsScreen extends Component {
@@ -17,7 +18,7 @@ class DetailsScreen extends Component {
   }
 
   componentDidMount() {
-    const dbRef = firebase.firestore().collection('users').doc(this.props.route.params.userkey)
+    const dbRef = firebase.firestore().collection(secret.databaseTable).doc(this.props.route.params.userkey)
     dbRef.get().then((res) => {
       if (res.exists) {
         const user = res.data();
@@ -29,7 +30,7 @@ class DetailsScreen extends Component {
           isLoading: false
         });
       } else {
-        console.log("Document does not exist.");
+        console.log('Document does not exist.');
       }
     });
   }
@@ -44,7 +45,7 @@ class DetailsScreen extends Component {
     this.setState({
       isLoading: true,
     });
-    const updateDBRef = firebase.firestore().collection('users').doc(this.state.key);
+    const updateDBRef = firebase.firestore().collection(secret.databaseTable).doc(this.state.key);
     updateDBRef.set({
       name: this.state.name,
       email: this.state.email,
@@ -60,7 +61,7 @@ class DetailsScreen extends Component {
       this.props.navigation.navigate(constant.toIndexScreen);
     })
     .catch((error) => {
-      console.error("Error: ", error);
+      console.error('Error: ', error);
       this.setState({
         isLoading: false,
       });
@@ -68,7 +69,7 @@ class DetailsScreen extends Component {
   }
 
   deleteUser() {
-    const dbRef = firebase.firestore().collection(constant.databaseTable).doc(this.props.route.params.userkey)
+    const dbRef = firebase.firestore().collection(secret.databaseTable).doc(this.props.route.params.userkey)
       dbRef.delete().then((res) => {
           console.log('Item removed from database.')
           this.props.navigation.navigate(constant.toIndexScreen);
@@ -93,7 +94,7 @@ class DetailsScreen extends Component {
     if(this.state.isLoading){
       return(
         <View style = {styles.preloader}>
-          <ActivityIndicator size = "large" color = {constant.activityIndicatorColor}/>
+          <ActivityIndicator size = 'large' color = {constant.activityIndicatorColor}/>
         </View>
       )
     }

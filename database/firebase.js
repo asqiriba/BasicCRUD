@@ -5,13 +5,13 @@ import firestore from 'firebase/firestore'
 import * as secret from '../controllers/secrets'
 
 // const firebaseConfig = {
-//     apiKey: secret.apiKey,
-//     authDomain: secret.authDomain,
-//     databaseURL: secret.databaseURL,
-//     projectId: secret.projectId,
-//     storageBucket: secret.storageBucket,
-//     messagingSenderId: secret.messagingSenderId,
-//     appId: secret.appId
+    // apiKey: secret.apiKey,
+    // authDomain: secret.authDomain,
+    // databaseURL: secret.databaseURL,
+    // projectId: secret.projectId,
+    // storageBucket: secret.storageBucket,
+    // messagingSenderId: secret.messagingSenderId,
+    // appId: secret.appId
 // };
 
 const firebaseConfig = secret.firebaseConfig;

@@ -4,14 +4,15 @@ import { ListItem } from 'react-native-elements'
 import { Avatar } from 'react-native-elements/dist/avatar/Avatar';
 import { Chip } from 'react-native-elements/dist/buttons/Chip';
 
-// Import constants.js and database.js.
+// Import constants.js, secrets.js and database.js.
 import * as constant from '../controllers/constants.js'
+import * as secret from '../controllers/secrets.js'
 import firebase from '../database/firebase.js';
 
 class IndexScreen extends Component {
   constructor() {
     super();
-    this.firestoreRef = firebase.firestore().collection(constant.databaseTable);
+    this.firestoreRef = firebase.firestore().collection(secret.databaseTable);
     this.state = {
       isLoading: true,
       contactArray: []
@@ -51,7 +52,7 @@ class IndexScreen extends Component {
     if(this.state.isLoading){
       return(
         <View style={styles.preloader}>
-          <ActivityIndicator size = "large" color = {constant.activityIndicatorColor}/>
+          <ActivityIndicator size = 'large' color = {constant.activityIndicatorColor}/>
         </View>
       )
     }    
@@ -60,7 +61,7 @@ class IndexScreen extends Component {
         <ScrollView style = {styles.container}>
             {
               this.state.contactArray.map((item, i) => {
-                var initials = item.name.split(" ").map((n)=>n[0]).join("");
+                var initials = item.name.split(' ').map((n) => n[0]).join('');
 
                 return (
                   <ListItem 
@@ -115,10 +116,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   bottom: {
-    position: "absolute",
+    position: 'absolute',
     right: 10,
     bottom: 10,
-    alignSelf: "flex-end"
+    alignSelf: 'flex-end'
   }
 })
 
